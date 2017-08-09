@@ -1,13 +1,13 @@
-package connection
-import akka.kafka.ConsumerMessage.{CommittableMessage, CommittableOffsetBatch}
+package reactiveKafka
+
 import akka.kafka._
-import akka.actor.{ActorRef, Actor, ActorSystem}
-import akka.kafka.scaladsl.{Consumer, Producer}
-import akka.stream.scaladsl.{Flow, Keep, Sink, Source}
+import akka.actor.ActorSystem
+import akka.kafka.scaladsl.Consumer
+import akka.stream.scaladsl.Sink
 import akka.stream.ActorMaterializer
-import akka.{Done, NotUsed}
-import org.apache.kafka.clients.consumer.{ConsumerConfig, ConsumerRecord}
-import org.apache.kafka.common.serialization.{ByteArrayDeserializer, ByteArraySerializer, StringDeserializer, StringSerializer}
+import akka.Done
+import org.apache.kafka.clients.consumer.ConsumerConfig
+import org.apache.kafka.common.serialization.{ByteArrayDeserializer, StringDeserializer}
 import scala.concurrent.Future
 import scala.util.{Failure, Success}
 
